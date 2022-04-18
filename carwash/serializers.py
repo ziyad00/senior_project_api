@@ -8,6 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model=Profile
         fields='__all__'
+   
     
 class OrderSerializer(serializers.ModelSerializer):
     #user=serializers.StringRelatedField(read_only=True, source='user.id')

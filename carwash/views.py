@@ -1,3 +1,4 @@
+from cgitb import lookup
 from django.shortcuts import render
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from .permissions import IsOwnerOrReadOnly
@@ -8,6 +9,7 @@ from .serializers import *
 class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
+    lookup_field = 'user__username'
 
     
     
