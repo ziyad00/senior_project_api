@@ -32,7 +32,6 @@ class Profile(models.Model):
     #photo = CloudinaryField('avatar')
     real_name = models.TextField(null=True)
     phone = models.CharField(null=True, max_length=255)
-    following = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='followers', blank=True)
     CUSTOMER = '1'
     DRIVER = '2'
     SERVICE_PROVIDER = '3'
