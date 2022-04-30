@@ -19,7 +19,8 @@ class Item(models.Model):
                              on_delete=models.CASCADE)
     name = models.TextField(blank=True)
     description = models.TextField(blank=True)
-    price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999)
+    in_price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999, null=True)
+    out_price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999, null=True)
 
 class Order(models.Model):
     name = models.TextField(blank=True)
