@@ -4,9 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-class Order(models.Model):
-    name = models.TextField(blank=True)
-    price = models.DecimalField(blank=True, decimal_places=5, max_digits=9999)
 
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -18,12 +15,20 @@ class Address(models.Model):
 
 class Item(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             related_name='user_Item',
+                             related_name='resturant_Item',
                              on_delete=models.CASCADE)
     name = models.TextField(blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999)
 
+class Order(models.Model):
+    name = models.TextField(blank=True)
+    items = models.ManyToManyField(Item,
+                             related_name='order_items',
+                             )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             related_name='user_Item',
+                             on_delete=models.CASCADE)
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  related_name='profile')

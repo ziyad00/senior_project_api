@@ -11,7 +11,7 @@ class ProfileSerializer(serializers.ModelSerializer):
    
     
 class OrderSerializer(serializers.ModelSerializer):
-    #user=serializers.StringRelatedField(read_only=True, source='user.id')
+    user=serializers.StringRelatedField(read_only=True, source='user.id')
     
     class Meta:
         model=Order
@@ -27,7 +27,6 @@ class AddressSerializer(serializers.ModelSerializer):
         #read_only_fields = ('users_like', 'total_likes')
 
 class ItemSerializer(serializers.ModelSerializer):
-    user=serializers.StringRelatedField(read_only=True, source='user.id')
     
     class Meta:
         model=Item

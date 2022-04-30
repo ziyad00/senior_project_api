@@ -46,9 +46,9 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     
  
-    #def perform_create(self, serializer):
-     #   user=self.request.user
-      #  serializer =serializer.save(user=user)
+    def perform_create(self, serializer):
+        user=self.request.user
+        serializer =serializer.save(user=user)
 
         
     def get_permissions(self):        
