@@ -35,9 +35,9 @@ class ProfileViewSet(viewsets.ModelViewSet):
         queryset = Profile.objects.all()
         if self.action == 'list':
             type = self.request.query_params.get('type', None)
-        if type is not None:
+            if type is not None:
             # profileID = Profile.objects.get(type=type)
-            queryset = queryset.filter(Type=type)
+                queryset = queryset.filter(Type=type)
         return queryset
 
 class OrderViewSet(viewsets.ModelViewSet):
