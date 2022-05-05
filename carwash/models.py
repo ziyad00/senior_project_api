@@ -21,6 +21,8 @@ class Item(models.Model):
     description = models.TextField(blank=True)
     in_price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999, null=True)
     out_price = models.DecimalField(blank=True,decimal_places=5, max_digits=9999, null=True)
+    both = models.DecimalField(blank=True,decimal_places=5, max_digits=9999, null=True)
+    photo = models.ImageField(upload_to='users/%Y/%m/%d/', blank=True)
 
 class Order(models.Model):
     name = models.TextField(blank=True)
